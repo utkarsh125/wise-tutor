@@ -1,9 +1,16 @@
+"use client"
+
+import Hero from './_components/Hero'
+import Navbar from './_components/Navbar'
 import React from 'react'
 
-const page = () => {
+const LandingPage = () => {
   return (
-    <div>page</div>
+    <>
+    <Navbar />
+    <Hero />
+    </>
   )
 }
 
-export default page
+export default LandingPage
