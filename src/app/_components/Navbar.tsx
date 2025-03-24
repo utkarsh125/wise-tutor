@@ -18,8 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#161179]">
-      {" "}
-      {/* Using #161179 for navbar background */}
+      {/* Navbar container */}
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Left side: Logo & Desktop Navigation */}
         <div className="flex items-center space-x-4">
@@ -39,35 +38,95 @@ const Navbar = () => {
 
         {/* Right side: Sign In Button & Mobile Menu Toggle */}
         <div className="flex items-center space-x-4">
+          {/* Desktop "Sign In" button */}
           <div className="hidden md:block">
-            {/* Outline button with custom border/text color from the palette */}
             <Button
               variant="outline"
-              className="border-[#FBE4D6] text-[#FBE4D6] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
+              className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
             >
               Sign In
             </Button>
           </div>
+          {/* Hamburger/Cross Toggle for Mobile */}
           <button
             className="focus:outline-none md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <svg
+            <motion.svg
               className="h-6 w-6 text-[#FBE4D6]"
-              fill="none"
-              stroke="currentColor"
               viewBox="0 0 24 24"
+              initial="closed"
+              animate={menuOpen ? "open" : "closed"}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              {/* Top line */}
+              <motion.line
+                x1="2"
+                y1="6"
+                x2="22"
+                y2="6"
+                stroke="currentColor"
                 strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
+                strokeLinecap="round"
+                variants={{
+                  closed: {
+                    rotate: 0,
+                    translateX: 0,
+                    translateY: 0,
+                  },
+                  open: {
+                    rotate: 45,
+                    translateY: 6, // moves from y=6 to y=12
+                    translateX: 0,
+                  },
+                }}
+                style={{ originX: 0.5, originY: 0.5 }}
+                transition={{ duration: 0.3 }}
               />
-            </svg>
+              {/* Middle line */}
+              <motion.line
+                x1="2"
+                y1="12"
+                x2="22"
+                y2="12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                transition={{ duration: 0.2 }}
+                style={{ originX: 0.5, originY: 0.5 }}
+              />
+              {/* Bottom line */}
+              <motion.line
+                x1="2"
+                y1="18"
+                x2="22"
+                y2="18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                variants={{
+                  closed: {
+                    rotate: 0,
+                    translateX: 0,
+                    translateY: 0,
+                  },
+                  open: {
+                    rotate: -45,
+                    translateY: -6, // moves from y=18 to y=12
+                    translateX: 0,
+                  },
+                }}
+                style={{ originX: 0.5, originY: 0.5 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.svg>
           </button>
         </div>
       </div>
+
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {menuOpen && (
@@ -93,7 +152,7 @@ const Navbar = () => {
               <li>
                 <Button
                   variant="outline"
-                  className="border-[#FBE4D6] text-[#FBE4D6] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
+                  className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
                 >
                   Sign In
                 </Button>
