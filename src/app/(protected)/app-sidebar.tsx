@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-// Keep your imports
 import {
   CreditCard,
   Grid,
@@ -37,7 +36,6 @@ export default function AppSidebar() {
   const [isMobile, setIsMobile] = useState(true);
   const pathname = usePathname();
 
-  // Determine if device is mobile using a media query
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
     setIsMobile(mediaQuery.matches);
@@ -49,7 +47,6 @@ export default function AppSidebar() {
   // For highlighting the active link
   const isActive = (href: string) => pathname === href;
 
-  // Example sections to replicate the screenshot structure
   const sections = [
     {
       title: "General",
@@ -138,10 +135,9 @@ export default function AppSidebar() {
         initial={{ x: "-100%" }}
         animate={{ x: isMobile ? (sidebarOpen ? 0 : "-100%") : 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        // Changed md:h-auto to md:h-screen so the sidebar spans the full height on desktop
         className="fixed top-0 left-0 z-50 w-64 h-screen bg-white border-r flex flex-col md:static md:h-screen"
       >
-        {/* Logo Header (always visible in the sidebar when open) */}
+
         <div className="flex items-center h-16 px-4 border-b">
           {/* ADD LOGO HERE. */}
           <span className="font-bold text-lg">GEN.</span>
@@ -166,7 +162,6 @@ export default function AppSidebar() {
                         : "text-gray-700 hover:bg-gray-100"
                     }`}
                   >
-                    {/* Icon */}
                     <item.icon className="w-4 h-4" />
                     {item.name}
                   </Link>
