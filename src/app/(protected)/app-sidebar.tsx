@@ -63,57 +63,58 @@ export default function AppSidebar() {
     <div>
       {/* Floating Hamburger Button for Mobile */}
       <div className="fixed top-4 left-4 z-50 md:hidden">
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="focus:outline-none"
-          aria-label="Toggle sidebar"
-        >
-          <motion.svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            initial="closed"
-            animate={sidebarOpen ? "open" : "closed"}
-          >
-            {/* Top Line */}
-            <motion.line
-              x1="3"
-              y1="6"
-              x2="21"
-              y2="6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              variants={topLineVariants}
-              transition={{ duration: 0.3 }}
-            />
-            {/* Middle Line */}
-            <motion.line
-              x1="3"
-              y1="12"
-              x2="21"
-              y2="12"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              variants={middleLineVariants}
-              transition={{ duration: 0.3 }}
-            />
-            {/* Bottom Line */}
-            <motion.line
-              x1="3"
-              y1="18"
-              x2="21"
-              y2="18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              variants={bottomLineVariants}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.svg>
-        </button>
-      </div>
+  <button
+    onClick={() => setSidebarOpen(!sidebarOpen)}
+    className="bg-[#f0edff] p-2 rounded-md shadow-xl focus:outline-none"
+    aria-label="Toggle sidebar"
+  >
+    <motion.svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      initial="closed"
+      animate={sidebarOpen ? "open" : "closed"}
+    >
+      {/* Top Line */}
+      <motion.line
+        x1="3"
+        y1="6"
+        x2="21"
+        y2="6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        variants={topLineVariants}
+        transition={{ duration: 0.3 }}
+      />
+      {/* Middle Line */}
+      <motion.line
+        x1="3"
+        y1="12"
+        x2="21"
+        y2="12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        variants={middleLineVariants}
+        transition={{ duration: 0.3 }}
+      />
+      {/* Bottom Line */}
+      <motion.line
+        x1="3"
+        y1="18"
+        x2="21"
+        y2="18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        variants={bottomLineVariants}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.svg>
+  </button>
+</div>
+
 
       {/* Overlay (only on mobile) */}
       <AnimatePresence>
