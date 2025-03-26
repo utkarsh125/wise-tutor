@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import AIInput from "../(protected)/chat/ai-input";
 import ReactMarkdown from "react-markdown";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 interface Message {
