@@ -3,7 +3,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { env } from "@/env";
 
-// Explicitly assert that GEMINI_API_KEY is a string.
 const apiKey = env.GEMINI_API_KEY;
 if (!apiKey) {
   throw new Error("GEMINI_API_KEY is not defined");
