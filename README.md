@@ -1,29 +1,37 @@
-# Create T3 App
+# GEN. – AI Tutoring Platform 🧠✨
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+GEN. is an AI-powered tutoring platform built for educators. It simplifies and accelerates the process of creating **lesson plans**, **question papers**, and other essential teaching materials using cutting-edge AI technologies.
 
-## What's next? How do I make an app with this?
+Whether you're preparing for tomorrow’s lecture or drafting a comprehensive test, GEN. is your intelligent teaching assistant.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+---
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## ✨ Features
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- ✅ **AI-generated Lesson Plans** – Quickly create structured, curriculum-based lesson plans.
+- ✅ **Question Paper Generator** – Generate customized question papers with varying difficulty levels.
+- ✅ **Smart Suggestions** – Receive improvement tips and topic coverage recommendations.
+- ✅ **Secure Auth & User Profiles** – Teachers can save, revisit, and refine their content anytime.
 
-## Learn More
+---
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+| Technology     | Description                      |
+|----------------|----------------------------------|
+| ![Clerk](https://img.shields.io/badge/Auth-Clerk-orange?style=for-the-badge&logo=clerk) | Authentication and user management |
+| ![TypeScript](https://img.shields.io/badge/Code-TypeScript-blue?style=for-the-badge&logo=typescript) | Static type checking and development |
+| ![NextJS](https://img.shields.io/badge/Framework-Next.js-black?style=for-the-badge&logo=next.js) | React framework with App Router |
+| ![Prisma](https://img.shields.io/badge/ORM-Prisma-3982CE?style=for-the-badge&logo=prisma) | Type-safe database access |
+| ![Langchain](https://img.shields.io/badge/LLM%20Toolkit-Langchain-00bcd4?style=for-the-badge) | Language model chaining for AI reasoning |
+| ![Gemini](https://img.shields.io/badge/AI-Gemini%202.0%20Flash-673ab7?style=for-the-badge) | Powerful large language model (Google AI) |
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+---
 
-## How do I deploy this?
+## 🚀 Getting Started
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+git clone https://github.com/yourusername/gen-ai-tutor.git
+cd gen-ai-tutor
+npm install
+npm run dev
