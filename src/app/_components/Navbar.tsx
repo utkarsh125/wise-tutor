@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "src/components/ui/button";
 import React from "react";
 import { navItems } from "src/utils/Navdata";
+import { SignInButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -40,12 +41,14 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {/* Desktop "Sign In" button */}
           <div className="hidden md:block">
-            <Button
-              variant="outline"
-              className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
-            >
+            <SignInButton>
+              <Button
+                variant="outline"
+                className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
+              >
               Sign In
             </Button>
+              </SignInButton>
           </div>
           {/* Hamburger/Cross Toggle for Mobile */}
           <button
@@ -150,12 +153,14 @@ const Navbar = () => {
                 </li>
               ))}
               <li>
+                <SignInButton>
                 <Button
                   variant="outline"
                   className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
-                >
+                  >
                   Sign In
                 </Button>
+                  </SignInButton>
               </li>
             </ul>
           </motion.div>
