@@ -1,3 +1,7 @@
+<p>
+  <img src="https://github.com/user-attachments/assets/7c3379b4-2726-4935-9c37-a0f31ea06b0b"/>
+</p>
+
 # GEN. – AI Tutoring Platform 🧠✨
 
 GEN. is an AI-powered tutoring platform built for educators. It simplifies and accelerates the process of creating **lesson plans**, **question papers**, and other essential teaching materials using cutting-edge AI technologies.
