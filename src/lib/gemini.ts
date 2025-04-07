@@ -46,4 +46,4 @@ export const AIGenerate = async(
   
 
 
-console.log(await AIGenerate("10", 5, "Maths", "Medium Find the value of x."));
+// console.log(await AIGenerate("10", 5, "Maths", "Medium Find the value of x."));

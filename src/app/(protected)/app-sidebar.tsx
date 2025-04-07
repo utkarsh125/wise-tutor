@@ -59,6 +59,8 @@ export default function AppSidebar() {
     },
   ];
 
+  //fetch user from clerk
+
   return (
     <div>
       {/* Floating Hamburger Button for Mobile */}
