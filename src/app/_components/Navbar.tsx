@@ -4,8 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Button } from "src/components/ui/button";
 import React from "react";
-import { navItems } from "src/utils/Navdata";
 import { SignInButton } from "@clerk/nextjs";
+import { navItems } from "src/utils/Navdata";
+import { redirect } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -153,14 +154,12 @@ const Navbar = () => {
                 </li>
               ))}
               <li>
-                <SignInButton>
-                <Button
+                <Button onClick={() => redirect('/sign-in')}
                   variant="outline"
                   className="border-[#FBE4D6] text-[#261FB3] hover:bg-[#261FB3] hover:text-[#FBE4D6]"
                   >
                   Sign In
                 </Button>
-                  </SignInButton>
               </li>
             </ul>
           </motion.div>
