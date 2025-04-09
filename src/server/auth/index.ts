@@ -1,10 +1,50 @@
-import NextAuth from "next-auth";
-import { cache } from "react";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 
-import { authConfig } from "./config";
+import { db } from "@/server/db";
 
-const { auth: uncachedAuth, handlers, signIn, signOut } = NextAuth(authConfig);
+export async function createUser(): Promise <void> {
 
-const auth = cache(uncachedAuth);
+    console.timeLog("createUser", "Creating user...");
 
-export { auth, handlers, signIn, signOut };
+    const { userId } = await auth();
+    console.log("User Id fetched: ", userId);
+
+    if(!userId){
+
+        throw new Error("User not authenticated");
+    }
+
+    //call the clerk client 
+    const clerk = await clerkClient();
+
+    const clerkUser = await clerk.users.getUser(userId);
+    console.log("Clerk User fetched: ", clerkUser);
+    const email = clerkUser.emailAddresses?.[0]?.emailAddress;
+    const name = clerkUser.firstName ?? null;
+
+    if(!email){
+        throw new Error("User email not found in clerk database");
+    }
+
+    await db.user.upsert({
+
+        where:{
+            clerkId: userId,
+        },
+        update:{
+            email,
+            name,
+        },
+        create:{
+            clerkId: userId,
+            email,
+            name,
+        }
+    })
+
+    console.log("User upserted successfully:", { userId, email, name });
+
+
+
+ 
+}

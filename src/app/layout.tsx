@@ -6,7 +6,7 @@ import { Geist } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "WiseTutor",
+  title: "GEN. | AI-powered tutoring",
   description: "AI powered tutoring",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

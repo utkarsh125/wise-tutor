@@ -1,59 +1,65 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
+  id              String          @id @default(cuid())
+  clerkId         String          @unique
+  email           String          @unique
+  name            String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
 
-    id String @id @default(cuid())
-    emailAddress String @unique 
-    firstName String?
-    lastName String? 
-    imageUrl String?
-    chats ChatHistory[]
-    
+  // Relations
+  chatHistories   ChatHistory[]
+  tokenUsage      TokenUsage?
+  subscriptions   Subscription[]
 }
 
 model ChatHistory {
-    id String @id @default(cuid())
-    createdAt DateTime @default(now())
-    name String
-    userId String? 
-    user User? @relation(fields: [userId], references: [id])
-    messages ChatMessage[]
+  id        String   @id @default(cuid())
+  userId    String
+  title     String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  chats     Chat[]
 }
 
-model ChatMessage {
+model Chat {
+  id             String   @id @default(cuid())
+  chatHistoryId  String
+  role           String   // "user" or "assistant"
+  content        String
+  createdAt      DateTime @default(now())
 
-    id String @id @default(cuid())
-    chatId String
-    chat ChatHistory @relation(fields: [chatId], references: [id])
-    createdAt DateTime @default(now())
-    sender MessageSender
-    content String
-
-
+  chatHistory    ChatHistory @relation(fields: [chatHistoryId], references: [id])
 }
 
+model TokenUsage {
+  id         String   @id @default(cuid())
+  userId     String   @unique
+  tokensUsed Int      @default(0)
+  tokenLimit Int      @default(50000)
+  updatedAt  DateTime @updatedAt
 
-enum MessageSender{
-    USER
-    BOT
+  user       User     @relation(fields: [userId], references: [id])
 }
 
+model Subscription {
+  id            String   @id @default(cuid())
+  userId        String
+  razorpayId    String   @unique
+  plan          String
+  status        String
+  startDate     DateTime
+  endDate       DateTime?
+  createdAt     DateTime @default(now())
 
-//The plan is to make the user able to upload PDF and suggest things accordingly.
-//TODO: Document
-//TODO: Embeddings
-
+  user          User     @relation(fields: [userId], references: [id])
+}

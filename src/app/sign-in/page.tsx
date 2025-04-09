@@ -1,9 +1,10 @@
 "use client"
 
+import { useSignIn, useSignUp } from "@clerk/nextjs"
+
+import ParticlesBackground from "@/components/SignInParticlesBackground"
 import React from "react"
 import { motion } from "framer-motion"
-import { useSignUp, useSignIn } from "@clerk/nextjs"
-import ParticlesBackground from "@/components/SignInParticlesBackground"
 
 const SignIn: React.FC = () => {
   const { signUp } = useSignUp();
@@ -52,6 +53,7 @@ const SignIn: React.FC = () => {
         >
           Sign in with Google
         </motion.button>
+        <div id="clerk-captcha" />
         {/* <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
