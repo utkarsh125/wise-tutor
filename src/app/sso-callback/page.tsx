@@ -3,7 +3,6 @@
 
 import { createUser } from '@/server/auth';
 import { redirect } from 'next/navigation';
-import { toast } from "sonner";
 
 export default async function SSOCallback() {
 
@@ -13,7 +12,7 @@ export default async function SSOCallback() {
   } catch (error) {
     console.error("Error creating user:", error);
 
-    //TODO: Add a fallback when user is not created.
+    //TODO: Add a fallback when user is not created. and why the fuck the routes are so fucked up.
   }
   redirect(`/dashboard`) // Navigate to the new post page
   return null; // Clerk handles everything in the background

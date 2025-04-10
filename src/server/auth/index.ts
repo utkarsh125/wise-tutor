@@ -22,6 +22,9 @@ export async function createUser(): Promise <void> {
     const email = clerkUser.emailAddresses?.[0]?.emailAddress;
     const name = clerkUser.firstName ?? null;
 
+    //TODO: Update schema for imageUrl.
+    //const imageUrl = clerkUser.imageUrl ?? null;
+
     if(!email){
         throw new Error("User email not found in clerk database");
     }
