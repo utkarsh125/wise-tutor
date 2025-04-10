@@ -23,7 +23,7 @@ export async function createUser(): Promise <void> {
     const name = clerkUser.firstName ?? null;
 
     //TODO: Update schema for imageUrl.
-    //const imageUrl = clerkUser.imageUrl ?? null;
+    const imageUrl = clerkUser.imageUrl ?? null;
 
     if(!email){
         throw new Error("User email not found in clerk database");
@@ -37,15 +37,17 @@ export async function createUser(): Promise <void> {
         update:{
             email,
             name,
+            imageUrl,
         },
         create:{
             clerkId: userId,
             email,
             name,
+            imageUrl,
         }
     })
 
-    console.log("User upserted successfully:", { userId, email, name });
+    console.log("User upserted successfully:", { userId, email, name, imageUrl });
 
 
 
